@@ -4,7 +4,7 @@
 #
 Name     : htop
 Version  : 1.0.3
-Release  : 7
+Release  : 8
 URL      : http://hisham.hm/htop/releases/1.0.3/htop-1.0.3.tar.gz
 Source0  : http://hisham.hm/htop/releases/1.0.3/htop-1.0.3.tar.gz
 Summary  : No detailed summary available
