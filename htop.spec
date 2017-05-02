@@ -4,7 +4,7 @@
 #
 Name     : htop
 Version  : 2.0.2
-Release  : 13
+Release  : 14
 URL      : http://hisham.hm/htop/releases/2.0.2/htop-2.0.2.tar.gz
 Source0  : http://hisham.hm/htop/releases/2.0.2/htop-2.0.2.tar.gz
 Summary  : No detailed summary available
