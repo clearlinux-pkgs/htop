@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x3FD8F43C2BB3C478 (h@hisham.hm)
 #
 Name     : htop
-Version  : 2.1.0
-Release  : 16
-URL      : http://hisham.hm/htop/releases/2.1.0/htop-2.1.0.tar.gz
-Source0  : http://hisham.hm/htop/releases/2.1.0/htop-2.1.0.tar.gz
-Source99 : http://hisham.hm/htop/releases/2.1.0/htop-2.1.0.tar.gz.asc
+Version  : 2.2.0
+Release  : 17
+URL      : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
+Source0  : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
+Source99 : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -18,10 +18,8 @@ Requires: htop-data
 Requires: htop-doc
 BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(libnl-3.0)
-BuildRequires : pkgconfig(libnl-genl-3.0)
 BuildRequires : python-dev
 BuildRequires : python3-dev
-Patch1: py2.patch
 
 %description
 [![Build Status](https://travis-ci.org/hishamhm/htop.svg?branch=master)](https://travis-ci.org/hishamhm/htop)
@@ -53,15 +51,14 @@ doc components for the htop package.
 
 
 %prep
-%setup -q -n htop-2.1.0
-%patch1 -p1
+%setup -q -n htop-2.2.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1517846883
+export SOURCE_DATE_EPOCH=1523373160
 %configure --disable-static --enable-linux-affinity --enable-taskstats  --enable-unicode--enable-delayacct  PYTHON=/usr/bin/python2
 make  %{?_smp_mflags}
 
@@ -73,7 +70,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1517846883
+export SOURCE_DATE_EPOCH=1523373160
 rm -rf %{buildroot}
 %make_install
 ## make_install_append content
