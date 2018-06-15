@@ -6,7 +6,7 @@
 #
 Name     : htop
 Version  : 2.2.0
-Release  : 19
+Release  : 20
 URL      : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
 Source0  : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
 Source99 : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz.asc
