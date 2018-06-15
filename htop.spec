@@ -18,7 +18,7 @@ Requires: htop-data
 Requires: htop-doc
 BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(libnl-3.0)
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 
 %description
