@@ -6,19 +6,20 @@
 #
 Name     : htop
 Version  : 2.2.0
-Release  : 20
+Release  : 21
 URL      : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
 Source0  : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
 Source99 : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: htop-bin
-Requires: htop-data
-Requires: htop-doc
+Requires: htop-bin = %{version}-%{release}
+Requires: htop-data = %{version}-%{release}
+Requires: htop-license = %{version}-%{release}
+Requires: htop-man = %{version}-%{release}
 BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(libnl-3.0)
-
+BuildRequires : python-dev
 BuildRequires : python3-dev
 
 %description
@@ -28,7 +29,9 @@ BuildRequires : python3-dev
 %package bin
 Summary: bin components for the htop package.
 Group: Binaries
-Requires: htop-data
+Requires: htop-data = %{version}-%{release}
+Requires: htop-license = %{version}-%{release}
+Requires: htop-man = %{version}-%{release}
 
 %description bin
 bin components for the htop package.
@@ -42,12 +45,20 @@ Group: Data
 data components for the htop package.
 
 
-%package doc
-Summary: doc components for the htop package.
-Group: Documentation
+%package license
+Summary: license components for the htop package.
+Group: Default
 
-%description doc
-doc components for the htop package.
+%description license
+license components for the htop package.
+
+
+%package man
+Summary: man components for the htop package.
+Group: Default
+
+%description man
+man components for the htop package.
 
 
 %prep
@@ -58,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523373160
+export SOURCE_DATE_EPOCH=1543563029
 %configure --disable-static --enable-linux-affinity --enable-taskstats  --enable-unicode--enable-delayacct  PYTHON=/usr/bin/python2
 make  %{?_smp_mflags}
 
@@ -70,12 +81,14 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1523373160
+export SOURCE_DATE_EPOCH=1543563029
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/htop
+cp COPYING %{buildroot}/usr/share/package-licenses/htop/COPYING
 %make_install
-## make_install_append content
+## install_append content
 ln -s htop %{buildroot}/usr/bin/top
-## make_install_append end
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -90,6 +103,10 @@ ln -s htop %{buildroot}/usr/bin/top
 /usr/share/applications/htop.desktop
 /usr/share/pixmaps/htop.png
 
-%files doc
-%defattr(-,root,root,-)
-%doc /usr/share/man/man1/*
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/htop/COPYING
+
+%files man
+%defattr(0644,root,root,0755)
+/usr/share/man/man1/htop.1
