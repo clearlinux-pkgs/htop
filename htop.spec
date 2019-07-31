@@ -6,10 +6,10 @@
 #
 Name     : htop
 Version  : 2.2.0
-Release  : 22
+Release  : 23
 URL      : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
 Source0  : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
-Source99 : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz.asc
+Source1 : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -31,7 +31,6 @@ Summary: bin components for the htop package.
 Group: Binaries
 Requires: htop-data = %{version}-%{release}
 Requires: htop-license = %{version}-%{release}
-Requires: htop-man = %{version}-%{release}
 
 %description bin
 bin components for the htop package.
@@ -68,20 +67,25 @@ man components for the htop package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1543563029
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1564591790
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static --enable-linux-affinity --enable-taskstats  --enable-unicode--enable-delayacct  PYTHON=/usr/bin/python2
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1543563029
+export SOURCE_DATE_EPOCH=1564591790
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/htop
 cp COPYING %{buildroot}/usr/share/package-licenses/htop/COPYING
