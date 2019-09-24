@@ -6,7 +6,7 @@
 #
 Name     : htop
 Version  : 2.2.0
-Release  : 24
+Release  : 25
 URL      : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
 Source0  : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
 Source1 : http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz.asc
@@ -19,8 +19,6 @@ Requires: htop-license = %{version}-%{release}
 Requires: htop-man = %{version}-%{release}
 BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(libnl-3.0)
-BuildRequires : python-dev
-BuildRequires : python3-dev
 Patch1: 0001-Settings.c-show-thread-names-by-default.patch
 
 %description
@@ -70,7 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564594155
+export SOURCE_DATE_EPOCH=1569353690
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -87,7 +85,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1564594155
+export SOURCE_DATE_EPOCH=1569353690
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/htop
 cp COPYING %{buildroot}/usr/share/package-licenses/htop/COPYING
