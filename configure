@@ -1,1 +1,4 @@
---enable-linux-affinity --enable-taskstats  --enable-unicode--enable-delayacct  PYTHON=/usr/bin/python2
+--enable-linux-affinity
+--enable-taskstats
+--enable-unicode
+--enable-delayacct

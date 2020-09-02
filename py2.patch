@@ -1,8 +1,0 @@
---- htop-2.1.0/scripts/MakeHeader.py~	2018-02-04 18:57:13.000000000 +0000
-+++ htop-2.1.0/scripts/MakeHeader.py	2018-02-05 16:06:36.261946043 +0000
-@@ -1,4 +1,4 @@
--#!/usr/bin/env python
-+#!/usr/bin/env python2
- import os, sys, string
- try:
-    from cStringIO import StringIO
