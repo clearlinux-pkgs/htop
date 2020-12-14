@@ -4,7 +4,7 @@
 #
 Name     : htop
 Version  : 3.0.3
-Release  : 30
+Release  : 31
 URL      : https://github.com/htop-dev/htop/archive/3.0.3/htop-3.0.3.tar.gz
 Source0  : https://github.com/htop-dev/htop/archive/3.0.3/htop-3.0.3.tar.gz
 Summary  : Interactive process viewer
