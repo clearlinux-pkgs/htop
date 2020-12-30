@@ -1,15 +1,7 @@
-Configure miss: whether sys/types.h defines makedev
+Configure miss: host_get_clock_service
 Configure miss: library containing devstat_checkversion
 Configure miss: addnwstr in -lncursesw6
-Configure miss: ncursesw/curses.h usability
-Configure miss: ncursesw/curses.h presence
 Configure miss: ncursesw/curses.h
-Configure miss: ncurses/ncurses.h usability
-Configure miss: ncurses/ncurses.h presence
 Configure miss: ncurses/ncurses.h
-Configure miss: ncurses/curses.h usability
-Configure miss: ncurses/curses.h presence
 Configure miss: ncurses/curses.h
-Configure miss: sensors/sensors.h usability
-Configure miss: sensors/sensors.h presence
 Configure miss: sensors/sensors.h
