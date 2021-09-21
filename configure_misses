@@ -1,7 +1,6 @@
 Configure miss: host_get_clock_service
-Configure miss: library containing devstat_checkversion
-Configure miss: addnwstr in -lncursesw6
-Configure miss: ncursesw/curses.h
-Configure miss: ncurses/ncurses.h
 Configure miss: ncurses/curses.h
+Configure miss: ncurses/ncurses.h
+Configure miss: ncursesw/curses.h
 Configure miss: sensors/sensors.h
+Configure miss: waddwstr in -lncursesw6
