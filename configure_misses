@@ -1,6 +1,10 @@
+Configure miss: backtrace in -lunwind
 Configure miss: host_get_clock_service
+Configure miss: libunwind.h
 Configure miss: ncurses/curses.h
 Configure miss: ncurses/ncurses.h
 Configure miss: ncursesw/curses.h
 Configure miss: sensors/sensors.h
 Configure miss: waddwstr in -lncursesw6
+Configure miss: whether C compiler accepts -Wextra-semi-stmt
+Configure miss: whether C compiler accepts -Wimplicit-int-conversion
