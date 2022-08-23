@@ -2,3 +2,4 @@
 --enable-taskstats
 --enable-unicode
 --enable-delayacct
+--enable-sensors

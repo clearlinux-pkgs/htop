@@ -4,7 +4,7 @@
 #
 Name     : htop
 Version  : 3.2.1
-Release  : 40
+Release  : 41
 URL      : https://github.com/htop-dev/htop/archive/3.2.1/htop-3.2.1.tar.gz
 Source0  : https://github.com/htop-dev/htop/archive/3.2.1/htop-3.2.1.tar.gz
 Summary  : Interactive process viewer
@@ -15,6 +15,7 @@ Requires: htop-data = %{version}-%{release}
 Requires: htop-license = %{version}-%{release}
 Requires: htop-man = %{version}-%{release}
 BuildRequires : libcap-dev
+BuildRequires : lm-sensors-dev
 BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(hwloc)
 BuildRequires : pkgconfig(libnl-3.0)
@@ -67,7 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1654229668
+export SOURCE_DATE_EPOCH=1661292558
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -79,7 +80,8 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %autogen --disable-static --enable-linux-affinity \
 --enable-taskstats \
 --enable-unicode \
---enable-delayacct
+--enable-delayacct \
+--enable-sensors
 make  %{?_smp_mflags}
 
 %check
@@ -90,10 +92,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1654229668
+export SOURCE_DATE_EPOCH=1661292558
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/htop
-cp %{_builddir}/htop-3.2.1/COPYING %{buildroot}/usr/share/package-licenses/htop/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/htop-%{version}/COPYING %{buildroot}/usr/share/package-licenses/htop/4cc77b90af91e615a64ae04893fdffa7939db84c
 %make_install
 ## install_append content
 ln -s htop %{buildroot}/usr/bin/top
